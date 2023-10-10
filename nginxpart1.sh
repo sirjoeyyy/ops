@@ -1,4 +1,4 @@
-//HOW TO INTALL NGINX
+REM HOW TO INTALL NGINX
 sudo apt-get update 
 
 sudo apt-get -y intall nginx
