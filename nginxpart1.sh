@@ -1,7 +1,11 @@
-REM HOW TO INTALL NGINX
+#!/bin/bash
+
+#! KM Sejoe & AC Ntini
+
+
 sudo apt-get update 
 
-sudo apt-get -y intall nginx
+sudo apt-get -y install nginx
 
 systemctl is-active nginx
 
@@ -9,23 +13,34 @@ sudo systemctl start nginx
 sudo systemctl stop nginx
 
 
-//HOW TO CREATE DIRECTORY 
+
 ls
 cd
 sudo mkdir /var/www/html/labs 
-ls-ld
-
-//HOW TO CHANGE OWNERSHIP
-sudo chown (new ownwer):root /var/www/html/labs
 ls-ld /var/www/html/labs
 
-//HOW TO CREATE A SYMBOLIC LINK
-ln-s
-ls-l
-cd html 
 
-//HOW TO CREATE AN INDEX.HTML FILE
-nano index 
+sudo chown (new ownwer):root /var/www/html/labs
+ls -ld /var/www/html/labs 
+
+
+ln -s /var/www/html/labs html
+ls -l
+cd html 
+touch index.html
+nano index.html
+
+
+cat index.html
+mkdir bin 
+cd bin
+touch websrv_coonfig_script.bash
+ls -l
+chmod u+x websrv_config_script.bash
+ls -l
+./websrv_config_script.bash
+nano websrv_config_script.bash
+
 
 
 
