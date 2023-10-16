@@ -41,6 +41,15 @@ ls -l
 ./websrv_config_script.bash
 nano websrv_config_script.bash
 
-
+<html>
+  <body>
+    <pr>
+    STUDENT INFORMATION
+    Names:
+    Student no:
+    Coarse:
+    </pr>
+  </body>
+</html>
 
 
