@@ -34,12 +34,12 @@ sudo nano index.html
 cat index.html
 sudo mkdir bin 
 cd bin
-touch websrv_config_script.bash
+sudo touch websrv_config_script.bash
 ls -l
-chmod u+x websrv_config_script.bash
+sudo chmod u+x websrv_config_script.bash
 ls -l
-./websrv_config_script.bash
-nano websrv_config_script.bash
+sudo ./websrv_config_script.bash
+sudo nano websrv_config_script.bash
 
 <html>
   <body>
