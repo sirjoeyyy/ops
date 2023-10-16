@@ -1,5 +1,4 @@
 #!/bin/bash
-
 #! KM Sejoe & AC Ntini
 
 
@@ -34,12 +33,12 @@ sudo nano index.html
 cat index.html
 sudo mkdir bin 
 cd bin
-sudo touch websrv_config_script.bash
+sudo touch websrv_config_script.bash #create bash script file
 ls -l
-sudo chmod u+x websrv_config_script.bash
+sudo chmod u+x websrv_config_script.bash #make file executable
 ls -l
-sudo ./websrv_config_script.bash
-sudo nano websrv_config_script.bash
+sudo ./websrv_config_script.bash #name file, also used as shortcut link to execute script
+sudo nano websrv_config_script.bash #paste/create bash script
 
 <html>
   <body>
