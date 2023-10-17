@@ -7,10 +7,10 @@ sudo apt update
 sudo apt install mysql-server
 
 Secure MySQL:
-sudo mysql_secure_installation
+sudo mysql_secure_installation --user root
 
-Test MySQL Connection: 
-mysql -h your_vm_ip -u root -p
+#Test MySQL Connection: 
+#mysql -h your_vm_ip -u root -p
 
 
 Create MySQL Databases and User by:
