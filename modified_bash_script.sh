@@ -7,13 +7,13 @@ page="index.html" #html variable
 path="/var/www/html"
 user="student"
 home="/home/student"
-echo"NGINX CONFIG SCRIPT"
-echo"-------------------"
-echo"Script Starting"
+echo "NGINX CONFIG SCRIPT"
+echo "-------------------"
+echo "Script Starting"
 sleep 1 #delays jump to next line
 
-rn -rvf $path/$dir #remove existing path & dir
-rn -rvf $home/$link #remove existing home & link
+#rn -rvf $path/$dir #remove existing path & dir
+#rn -rvf $home/$link #remove existing home & link
 
 if [ "'systemctl is-active nginx 2> /dev/null'" = "active" ]
 then
@@ -40,7 +40,7 @@ then
         ln -s $path/$dir $home/$link
         sleep 1
 
-        if[-L $home/$link ]; then
+        #if[-L $home/$link ]; then
         cd $home/$link
         echo "Creating test page $page"
         touch $page #displays html
@@ -54,13 +54,13 @@ then
         echo "</html>" >> $page
         
         echo"Script has finished executing page"
-        else
+        #else
                 echo"Symbolic link ($link) was not found!"
                 echo"Script will now exit..."
                 sleep 1
                 exit 1
 
-fi
+#fi
         
         else 
                 echo "NGINX service not running"
