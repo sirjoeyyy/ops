@@ -14,7 +14,7 @@ sudo systemctl stop nginx
 
 
 ls
-cd
+cd /var
 sudo mkdir /var/www/html/labs 
 ls -ld /var/www/html/labs
 
