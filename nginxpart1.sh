@@ -26,11 +26,11 @@ ls -ld /var/www/html/labs (
 ln -s /var/www/html/labs html
 ls -l
 cd html 
-sudo touch index.html
+sudo touch index.html #creating html file
 sudo nano index.html
 
 
-cat index.html
+cat index.html #displays html
 sudo mkdir bin 
 cd bin
 sudo touch websrv_config_script.bash #create bash script file
@@ -46,7 +46,7 @@ sudo nano websrv_config_script.bash #paste/create bash script
     STUDENT INFORMATION
     Names:
     Student no:
-    Coarse:
+    Course:
     </pr>
   </body>
 </html>
