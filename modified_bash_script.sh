@@ -11,8 +11,8 @@ echo"-------------------"
 echo"Script Starting"
 sleep 1 #delays jump to next line
 
-rn -rvf $path/$dir
-rn -rvf $home/$link
+rn -rvf $path/$dir #remove existing path & dir
+rn -rvf $home/$link #remove existing home & link
 
 if [ "'systemctl is-active nginx 2> /dev/null'" = "active" ]
 then
