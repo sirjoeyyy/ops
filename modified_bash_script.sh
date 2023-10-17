@@ -1,4 +1,5 @@
 #!/bin/bash
+#Sinenhlanhla Mlotshwa & Thokozane Ramongana
 #Variable Declaration
 dir="labs" #variable "labs" created
 link="html" #symbolic link variable
