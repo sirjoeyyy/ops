@@ -1,5 +1,7 @@
 Create an Azure Virtual Machine:
+
 Install NGINX
+
 Install MySQL Server: 
 sudo apt update
 sudo apt install mysql-server
@@ -15,7 +17,8 @@ Create MySQL Databases and User by:
 Access the MySQL Server: 
 mysql -u root -p
 
-Create the Database: CREATE DATABASE student_records;
+Create the Database: 
+CREATE DATABASE student_records;
 
 Use the Database: 
 USE student_records;
