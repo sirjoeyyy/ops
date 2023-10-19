@@ -46,15 +46,31 @@ sudo nano index.html
 #displays html code
 cat index.html 
 
-
+# Create a directory at /bin
 sudo mkdir bin 
+
+# Navigate to the /bin directory
 cd bin
-sudo touch websrv_config_script.bash #create bash script file
+
+#creating bash script file
+sudo touch websrv_config_script.bash 
+
+# List the websrv_config_script.bash target
 ls -l
-sudo chmod u+x websrv_config_script.bash #make file executable
+
+#make file executable
+sudo chmod u+x websrv_config_script.bash 
+
+# List the executable file and its target
 ls -l
-sudo ./websrv_config_script.bash #name file, also used as shortcut link to execute script
-sudo nano websrv_config_script.bash #paste/create bash script
+
+#Paste/Create bash script
+sudo nano websrv_config_script.bash 
+
+#Execute script
+sudo ./websrv_config_script.bash 
+
+#end of part 1
 
 <html>
   <body>
