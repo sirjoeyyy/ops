@@ -43,6 +43,17 @@ sudo touch index.html
 # Edit an index.html file using a text editor (e.g., nano)
 sudo nano index.html
 
+<html>
+  <body>
+    <pr>
+    STUDENT INFORMATION
+    Names:
+    Student no:
+    Course:
+    </pr>
+  </body>
+</html>
+
 #displays html code
 cat index.html 
 
@@ -72,15 +83,6 @@ sudo ./websrv_config_script.bash
 
 #end of part 1
 
-<html>
-  <body>
-    <pr>
-    STUDENT INFORMATION
-    Names:
-    Student no:
-    Course:
-    </pr>
-  </body>
-</html>
+
 
 
