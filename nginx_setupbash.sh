@@ -29,12 +29,11 @@ sudo chown <new_owner>:root /var/www/html/labs
 ls -ld /var/www/html/labs
 
 # Create a symbolic link to the /var/www/html/labs directory
-ln -s /var/www/html/labs /path/to/symlink <<<ln: failed to create symbolic link '/path/to/symlink': No such file or directory>>>
-ln -s /var/www/html/labs/path/to/symlink <<what ran on my side>>>
+ln -s /var/www/html/labs html <<what ran on my side>>>
 
 
 # List the symbolic link and its target
-ls -l /path/to/symlink <<<ls: cannot access '/path/to/symlink': No such file or directory>>>
+ls -l /var/www/html/labs html <<<ls: cannot access '/path/to/symlink': No such file or directory>>>
 
 
 # Navigate to the /var/www/html directory
