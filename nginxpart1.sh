@@ -40,7 +40,7 @@ cd /var/www/html
 #creating html file
 sudo touch index.html 
 
-#Edit html file
+# Edit an index.html file using a text editor (e.g., nano)
 sudo nano index.html
 
 #displays html code
