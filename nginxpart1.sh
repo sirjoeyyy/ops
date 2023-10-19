@@ -11,10 +11,6 @@ systemctl is-active nginx
 sudo systemctl start nginx
 sudo systemctl stop nginx
 
-
-
-ls
-cd /var
 sudo mkdir /var/www/html/labs 
 ls -ld /var/www/html/labs
 
@@ -25,7 +21,7 @@ ls -ld /var/www/html/labs (
 
 ln -s /var/www/html/labs html
 ls -l
-cd html 
+cd /var/www/html 
 sudo touch index.html #creating html file
 sudo nano index.html
 
