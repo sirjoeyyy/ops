@@ -1,6 +1,8 @@
 Create an Azure Virtual Machine:
 
 Install NGINX
+sudo apt-get update 
+sudo apt-get -y install nginx
 
 Install MySQL Server: 
 sudo apt install mysql-server
