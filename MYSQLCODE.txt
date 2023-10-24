@@ -7,9 +7,6 @@ sudo apt-get -y install nginx
 Install MySQL Server: 
 sudo apt install mysql-server
 
-1.Secure MySQL/Lo:
-#sudo mysql_secure_installation --user root
-#(enter password)
 
 2.sudo passwd
 
