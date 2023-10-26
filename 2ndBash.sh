@@ -9,9 +9,10 @@ path="/var/www/html"
 user="azureuser"
 home="/home/azureuser"
 
-echo "NGINX CONFIG SCRIPT"
-echo "-------------------"
-echo "Script Starting"
+echo "------------------------"
+echo "  NGINX CONFIG SCRIPT "
+echo "------------------------"
+echo "Script Starting..............."
 sleep 1 
 
 # Remove existing directories and symbolic links if they exist
@@ -21,17 +22,17 @@ rm -rvf "$home/$link"
 
 
 if [ "$(systemctl is-active nginx 2> /dev/null)" = "active" ]; then
-    echo "NGINX service running, continue with configuration..."
+    echo "NGINX service running, continuing with configuration..."
     sleep 1
-    echo "Creating directory $dir"
+    echo "Creating directory $dir...."
     sleep 1
 
     mkdir -p "$path/$dir"  #  -p to create parent directories if they don't exist
     if [ -d "$path/$dir" ]; then  
-        echo "Changing Ownership $dir to $user"  
+        echo "Changing Ownership $dir to $user...."  
         sleep 1
         chown "$user:root" "$path/$dir"
-        echo "Creating symbolic link $home/$link"
+        echo "Creating symbolic link $home/$link...."
         sleep 1
         ln -s "$path/$dir" "$home/$link"
     else
@@ -43,9 +44,9 @@ sleep 1
 
 if [ -L "$home/$link" ]; then
     cd "$home/$link"
-    echo "Creating test page $page"
+    echo "Creating test page $page...."
     touch "$page"  # Added double quotes around the variable
-    echo "Adding dummy content to $page"
+    echo "Adding dummy content to $page...."
     sleep 1
     echo "<html>" >> "$page"
     echo "<body>" >> "$page"
@@ -54,7 +55,7 @@ if [ -L "$home/$link" ]; then
     echo "</body>" >> "$page"
     echo "</html>" >> "$page"
 
-    echo "Script has finished executing page"
+    echo "Script has finished executing page!"
 else
     echo "Symbolic link ($link) was not found!"
     echo "Script will now exit..."
