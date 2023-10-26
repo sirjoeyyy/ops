@@ -45,12 +45,12 @@ sudo nano index.html
 
 <html>
   <body>
-    <pr>
+    <p>
     STUDENT INFORMATION
     Names:
     Student no:
     Course:
-    </pr>
+    </p>
   </body>
 </html>
 
