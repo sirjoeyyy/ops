@@ -12,7 +12,7 @@ home="/home/azureuser"
 echo "NGINX CONFIG SCRIPT"
 echo "-------------------"
 echo "Script Starting"
-sleep 1  # Delays execution for 1 second
+sleep 1 
 
 # Remove existing directories and symbolic links if they exist
 rm -rvf "$path/$dir"
@@ -39,8 +39,31 @@ if [ "$(systemctl is-active nginx 2> /dev/null)" = "active" ]; then
         echo "Exiting Script..."
         exit 1
     fi
+sleep 1
+
+if [ -L "$home/$link" ]; then
+    cd "$home/$link"
+    echo "Creating test page $page"
+    touch "$page"  # Added double quotes around the variable
+    echo "Adding dummy content to $page"
+    sleep 1
+    echo "<html>" >> "$page"
+    echo "<body>" >> "$page"
+    echo "<h1>STUDENT INFORMATION</h1>" >> "$page"
+    echo "<p>Names: Student no: Course:</p>" >> "$page"
+    echo "</body>" >> "$page"
+    echo "</html>" >> "$page"
+
+    echo "Script has finished executing page"
+else
+    echo "Symbolic link ($link) was not found!"
+    echo "Script will now exit..."
+    sleep 1
+    exit 1
+fi
 else
     echo "NGINX service is not running"
     echo "Exiting Script"
     exit 1
+
 fi
