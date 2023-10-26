@@ -1,4 +1,7 @@
 
+sudo apt-get update
+
+
 Install MySQL Server: 
 sudo apt install mysql-server
 
@@ -7,10 +10,7 @@ sudo apt install mysql-server
 
 3. su -
 
-4. Login into the MySQL Server: 
-    mysql -u root 
-
-5.  Now, reset the root password, but first flush the privileges to reload the grants:
+4.  Now, reset the root password, but first flush the privileges to reload the grants:
     mysql> FLUSH PRIVILEGES;
     mysql> use mysql;
     mysql> update user set plugin="mysql_native_password" where User='root';  <<<<<<<<
@@ -18,10 +18,9 @@ sudo apt install mysql-server
     mysql> FLUSH PRIVILEGES;
     mysql> quit;
 
-6. use sql
 
-7. Login into the MySQL Server: 
-    mysql -u root 
+5. Login into the MySQL Server: 
+    mysql -u root -p
 
 Create the Database: 
 CREATE DATABASE studentsManagement;
