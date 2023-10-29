@@ -1,38 +1,58 @@
 import mysql.connector
 from mysql.connector import connect, Error
 
-# Function to connect to MySQL database and fetch all records from the "students" table
-def fetch_students_records():
+# Function to create a MySQL connection
+def create_connection():
     try:
-        # Establish a connection to the MySQL database
-        with connect(
-            host="20.245.66.206",  #your MySQL server host
-            user="root",  # your MySQL username
-            password="15162829sInenhlanhlA@**",  # your MySQL password
-            database="studentsManagement",  # Name of your database
-        ) as connection:
-            # Create a cursor for executing SQL queries
-            cursor = connection.cursor()
+        connection = connect(
+            host="20.245.66.206",  # Change to your MySQL server host
+            user="root",  # Change to your MySQL username
+            password="15162829sInenhlanhlA@**",  # Change to your MySQL password
+        )
+        return connection
+    except Error as e:
+        print(f"Error: {e}")
+        return None
 
-            # Define the SQL query to fetch all records from the "students" table
-            query = "SELECT * FROM students"
-
-            # Execute the query
-            cursor.execute(query)
-
-            # Fetch all the records
-            records = cursor.fetchall()
-
-            # Print the fetched records (you can store them in a data structure as well)
-            for record in records:
-                print(record)
-
+# Function to create a new database
+def create_database(connection, db_name):
+    try:
+        with connection.cursor() as cursor:
+            cursor.execute(f"CREATE DATABASE IF NOT EXISTS {db_name}")
+        print(f"Database '{db_name}' created successfully.")
     except Error as e:
         print(f"Error: {e}")
 
-# Call the function to fetch and print all student records
-fetch_students_records()
+# Function to create a table
+def create_table(connection, db_name, table_name):
+    try:
+        with connection.cursor() as cursor:
+            cursor.execute(f"USE {db_name}")
+            cursor.execute(f"CREATE TABLE IF NOT EXISTS {table_name} (id INT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(255), age INT)")
+        print(f"Table '{table_name}' created successfully.")
+    except Error as e:
+        print(f"Error: {e}")
 
+# Function to insert data into the table
+def insert_student(connection, db_name, table_name, student_data):
+    try:
+        with connection.cursor() as cursor:
+            cursor.execute(f"USE {db_name}")
+            query = f"INSERT INTO {table_name} (name, age) VALUES (%s, %s)"
+            cursor.executemany(query, student_data)
+            connection.commit()
+        print("Data inserted successfully.")
+    except Error as e:
+        print(f"Error: {e}")
 
-#TO RUN SCRIPT
- python <scriptName>.py
+if __name__ == "__main__":
+    connection = create_connection()
+    if connection is not None:
+        create_database(connection, "studentsManagement")
+        create_table(connection, "studentsManagement", "studentInfo")
+        
+        # Example student data to insert
+        student_data = [("John Doe", 22), ("Jane Smith", 20), ("Bob Johnson", 21)]
+        insert_student(connection, "studentsManagement", "studentInfo", student_data)
+
+        connection.close()
