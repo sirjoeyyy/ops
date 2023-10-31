@@ -1,0 +1,78 @@
+First, connect your Flask application to a MySQL database. You can install it using pip:
+pip install Flask SQLAlchemy mysql-connector-python
+
+create python script
+
+from flask import Flask, render_template, request
+from flask_sqlalchemy import SQLAlchemy
+
+app = Flask(__name)
+
+# Replace 'mysql://username:password@host/dbname' with your MySQL database information.
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql://username:password@host/dbname'
+db = SQLAlchemy(app)
+
+class Student(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(80), nullable=False)
+    student_number = db.Column(db.String(20), nullable=False)
+    course = db.Column(db.String(100), nullable=False)
+
+@app.route('/', methods=['GET', 'POST'])
+def student_information():
+    if request.method == 'POST':
+        name = request.form['name']
+        student_number = request.form['studentNumber']
+        course = request.form['course']
+
+        # Create a new student record in the database.
+        new_student = Student(name=name, student_number=student_number, course=course)
+        db.session.add(new_student)
+        db.session.commit()
+    else:
+        name = ""
+        student_number = ""
+        course = ""
+
+    # Retrieve all student records from the database.
+    students = Student.query.all()
+
+    return render_template('student.html', name=name, student_number=student_number, course=course, students=students)
+
+if __name__ == '__main__':
+    app.run(debug=True)
+
+## Make sure to replace 'mysql://username:password@host/dbname' with your actual MySQL database connection details.
+
+Create a folder named templates in the same directory as your app.py file. Inside the templates folder, create an HTML file named student.html with the following content:
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Student Information</title>
+  </head>
+  <body>
+    <h1>STUDENT INFORMATION</h1>
+    <form method="POST">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" value="{{ name }}" required><br><br>
+
+      <label for="studentNumber">Student no:</label>
+      <input type="text" id="studentNumber" name="studentNumber" value="{{ student_number }}" required><br><br>
+
+      <label for="course">Course:</label>
+      <input type="text" id="course" name="course" value="{{ course }}" required><br><br>
+
+      <input type="submit" value="Submit">
+    </form>
+
+    <h2>Student List</h2>
+    <ul>
+      {% for student in students %}
+        <li>{{ student.name }} (Student No: {{ student.student_number }}, Course: {{ student.course }})</li>
+      {% endfor %}
+    </ul>
+  </body>
+</html>
+
+un your Flask application with python app.py. Your application will now store and retrieve student records from the MySQL database. Make sure you have set up your MySQL database correctly with the specified connection string in the code.
+With these changes, your Flask application connects to a MySQL database, stores student information, and displays a list of students on the page
