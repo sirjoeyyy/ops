@@ -1,5 +1,5 @@
 #!/bin/bash
-# Sinenhlanhla Mlotshwa & Thokozane Ramongana
+echo "Sinenhlanhla Mlotshwa & Thokozane Ramongana"
 
 # Variable Declaration
 dir="labs"  
